@@ -1,5 +1,10 @@
 @import '../../styles.scss';
 
+*:not(.fa) {
+  font-family: $default-font;
+  font-weight: 400;
+}
+
 .wrapper {
   background-color: #fff;
   border-radius: 7px;
