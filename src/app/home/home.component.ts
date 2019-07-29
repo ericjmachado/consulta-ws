@@ -79,7 +79,7 @@ export class HomeComponent implements OnInit {
       Swal.fire('Atenção', 'Informe um CNPJ válido!', 'warning');
       this.CNPJ = '';
     } else {
-      this.searchService.searchCompanie(this.CNPJ.replace(/[^\d]+/g,''))
+      this.searchService.searchCompany(this.CNPJ.replace(/[^\d]+/g,''))
       .subscribe((res) => {
         this.saveOnStorage(res)
         this.companies.unshift(res);
@@ -93,13 +93,13 @@ export class HomeComponent implements OnInit {
 
 
   // Save companie on localstorage
-  private saveOnStorage(companie) {
+  private saveOnStorage(company) {
     let storage: any = this.getStorage();
     if (storage == null) {
       storage = [];
-      storage.push(companie);
+      storage.push(company);
     } else {
-      storage.unshift(companie)
+      storage.unshift(company)
     }
     localStorage.setItem('companies', JSON.stringify(storage));
   }

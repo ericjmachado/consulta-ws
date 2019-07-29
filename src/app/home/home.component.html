@@ -13,8 +13,8 @@
   </div>
   <div class="container">
     <div class="results">
-      <div *ngIf="companies.length > 0">
-        <app-card *ngFor="let companie of companies" [companie]="companie"></app-card>
+      <div *ngIf="companies.length > 0" class="wrapper-cards row">
+        <app-card *ngFor="let company of companies" [company]="company" class="col-lg-3 col-md-4 col-sm-6 col-xs-12"></app-card>
       </div>
       <div class="wrapper-image" *ngIf="companies.length == 0">
         <img src="../../assets/images/search.png" />

@@ -10,7 +10,7 @@ export class SearchService {
 
   constructor(private http: HttpClient) { }
 
-  public searchCompanie(cnpj: String) {
+  public searchCompany(cnpj: String) {
     return this.http.jsonp(this.url + cnpj, 'callback');
   }
 }
