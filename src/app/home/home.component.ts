@@ -77,7 +77,6 @@ export class HomeComponent implements OnInit {
   public triggerSubmit() {
     if (!this.validateCNPJ()) {
       Swal.fire('Atenção', 'Informe um CNPJ válido!', 'warning');
-      this.CNPJ = '';
     } else {
       this.searchService.searchCompany(this.CNPJ.replace(/[^\d]+/g,''))
       .subscribe((res) => {
@@ -89,6 +88,7 @@ export class HomeComponent implements OnInit {
         Swal.fire('Oooops!', err.message, 'error');
       });
     }
+    this.CNPJ = '';
   }
 
 
@@ -106,6 +106,11 @@ export class HomeComponent implements OnInit {
 
   // Rescue array of companies
   private getStorage() {
-    return JSON.parse(localStorage.getItem('companies'));
+    const store = JSON.parse(localStorage.getItem('companies'));
+    if (store == null) {
+      return [];
+    } else {
+      return store;
+    }
   }
 }

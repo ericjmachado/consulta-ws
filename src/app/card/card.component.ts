@@ -11,7 +11,5 @@ export class CardComponent implements OnInit {
 
   @Input() company: any;
   
-  ngOnInit() {
-    console.log(this.company)
-  }
+  ngOnInit() { }
 }
