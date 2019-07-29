@@ -13,7 +13,7 @@
     .main-text {
       font-weight: bold;
     }
-    .subtitle {
+    .subtitle:not(.last) {
       margin-bottom: 20px;
     }
   }

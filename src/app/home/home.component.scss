@@ -34,6 +34,18 @@
   }
 }
 
+@media all and (max-width: 800px) {
+  .title-container {
+    padding: 20px 0;
+    justify-content: center;
+    flex-flow: column;
+    > p {
+      margin-bottom: 0;
+      margin-left: 0;
+      font-size: 30px;
+    }
+  }
+}
 .search-container {
   padding: 0 0 20px;
   .form-group {
@@ -67,6 +79,18 @@
   }
 }
 
+@media all and (max-width: 800px) {
+  .search-container {
+    padding: 10px 0;
+    .form-group {
+      flex-flow: column;
+      button {
+        margin-left: 0!important;
+        margin-top: 25px!important;
+      }
+    }
+  }
+}
 .results {
   .wrapper-image {
     display: flex;
