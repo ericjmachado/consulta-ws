@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class DetailsCardComponent implements OnInit {
 
-  private details: any = '';
+  public details: any = '';
   private geocoder: any;
   private google: any;
 
