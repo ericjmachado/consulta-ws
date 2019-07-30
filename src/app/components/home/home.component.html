@@ -13,8 +13,15 @@
   </div>
   <div class="container">
     <div class="results">
-      <div *ngIf="companies.length > 0" class="wrapper-cards row">
-        <app-card *ngFor="let company of companies" [company]="company" class="col-lg-3 col-md-4 col-sm-6 col-xs-12"></app-card>
+      <div *ngIf="companies.length > 0" class="wrapper-cards" [ngClass]="{carousel: companies.length > 4}">
+        <ng-container *ngIf="companies.length > 4">
+          <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="configSlider" >
+            <app-card ngxSlickItem *ngFor="let company2 of companies" [company]="company2"></app-card>
+          </ngx-slick-carousel>
+        </ng-container>
+        <ng-container *ngIf="companies.length <= 4">
+          <app-card *ngFor="let company of companies" [company]="company" class="col-lg-3 col-md-4 col-sm-6 col-xs-12"></app-card>
+        </ng-container>
       </div>
       <div class="wrapper-image" *ngIf="companies.length == 0">
         <img src="../../assets/images/search.png" />

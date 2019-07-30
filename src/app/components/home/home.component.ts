@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { SearchService } from '../search.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +12,29 @@ export class HomeComponent implements OnInit {
   CNPJ: string = '';
   companies: Array<Object> = [];
   sizeCompanies = '';
+
+  configSlider: object = {
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    arrows: true,
+    speed: 400,
+    autoplay: true,
+    accessibility: false,
+    responsive: [
+      {
+      breakpoint: 1024,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+  }
 
   constructor(private searchService: SearchService) { }
 

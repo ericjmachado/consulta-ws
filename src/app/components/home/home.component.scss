@@ -1,4 +1,4 @@
-@import '../../styles.scss';
+@import '../../../styles.scss';
 
 *:not(.fa) {
   font-family: $default-font;
@@ -112,9 +112,21 @@
   }
   .wrapper-cards {
     display: flex;
+    cursor: pointer;
     justify-content: space-between;
     align-items: center;
     margin-top: 30px;
+    flex-wrap: wrap;
+    &.carousel {
+      display: block!important;
+      ::ng-deep {
+        app-card {
+          .wrapper {
+            margin: 0 10px;
+          }
+        } 
+      }
+    }
     app-card {
       margin: 10px 0;
     }
