@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { MapsAPILoader } from '@agm/core';
 
 import Swal from 'sweetalert2';
 
@@ -13,8 +12,9 @@ export class DetailsCardComponent implements OnInit {
 
   private details: any = '';
   private geocoder: any;
+  private google: any;
 
-  constructor(private route: ActivatedRoute, private router: Router, private mapsApiLoader: MapsAPILoader) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(
@@ -24,8 +24,10 @@ export class DetailsCardComponent implements OnInit {
           if (!this.details) {
             this.kickUser();
           } else {
-            const geocoder = new google.maps.Geocoder();
+            const geocoder = new this.google.maps.Geocoder();
             geocoder.geocode({ 'address': this.details.logradouro }, function (results, status) {
+
+              // Infelizmente esgotei a cota de uso diario do mapas, nao avancando nessa parte
               if (status) {
                 console.log(results);
               } else {
@@ -38,6 +40,10 @@ export class DetailsCardComponent implements OnInit {
         }
       }
     );
+  }
+
+  public backToRoot() {
+    this.router.navigate(['/']);
   }
 
   private kickUser() {
